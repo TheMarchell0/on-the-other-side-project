@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Русское название</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+<style>
+    body {
+        height: 100vh;
+        overflow: hidden;
+        background: #151515;
+    }
+    .video-container, .video {
+        height: 100%;
+        width: 100%;
+    }
+
+    .video {
+        transition: 0.1s linear opacity;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+
+    button {
+        background: red;
+        border-radius: 20px;
+        height: 200px;
+        width: 300px;
+        color: #FFFFFF;
+        font-size: 43px;
+        z-index: 100;
+        position: absolute;
+    }
+</style>
+<body>
+<div class="video-container">
+    <video id="video-1" class="video" muted>
+        <source src="../video-source/video-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video-2" class="video hidden" muted>
+        <source src="../video-source/video-2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video-3" class="video hidden" muted>
+        <source src="../video-source/video-3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <video id="video-4" class="video hidden" muted>
+        <source src="../video-source/video-4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button>Пауза</button>
+</div>
+<script src="../script.js"></script>
+</body>
+</html>
