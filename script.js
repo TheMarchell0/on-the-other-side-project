@@ -1,36 +1,40 @@
 const videos = document.querySelectorAll('.video');
 const secondsDelay = [
-    3,
+    3.0,
     'finish',
     'finish',
-    2,
-    4,
-    6,
-    9,
-    11,
-    14,
-    16,
-    19,
-    21,
-    24,
-    27,
-    30,
-    31,
-    34,
-    36,
-    39,
-    41,
-    44,
-    46,
-    49,
-    51,
-    54,
-    56,
-    59,
-    61,
-    64,
+    1.8, //1
+    4.2, // 1
+    5.7, // 2
+    8.2, // 2
+    9.7, // 3
+    12.2, // 3
+    13.7, // 4
+    16.2, // 4
+    17.7, // 5
+    20.2, // 5
+    21.7, // 6
+    24.2, // 6
+    25.7, // 7
+    28.2, // 7
+    29.7, // 8
+    32.2, // 8
+    33.7, // 9
+    36.2, // 9
+    37.7, // 10
+    40.2, // 10
+    41.7, // 11
+    44.2, // 11
+    45.7, // 12
+    48.2, // 12
+    49.7, // 13
+    52.2, // 13
+    53.7, // 14
+    56.2, // 14
+    57.7, // 15
+    60.2, // 15
     'finish',
-    5,
+    5.1,
     'repeat'
 ];
 let clickCount = 0;
@@ -74,11 +78,17 @@ function playVideo() {
     button.classList.add('hidden')
     canClick = false;
     currentVideo.play();
-    currentVideo.addEventListener('timeupdate', function () {
-        if (Math.floor(currentVideo.currentTime) === secondsDelay[clickCount]) {
+    handleTimeUpdate();
+}
+
+function handleTimeUpdate () {
+    let videoInterval = setInterval(()=> {
+        if (currentVideo.currentTime.toFixed(1) == secondsDelay[clickCount] ||
+            currentVideo.currentTime.toFixed(1) == secondsDelay[clickCount]+0.1 ||
+            currentVideo.currentTime.toFixed(1) == secondsDelay[clickCount]-0.1) {
             currentVideo.pause();
             button.classList.remove('hidden')
             canClick = true;
-        }
-    })
+            clearInterval(videoInterval);
+        }}, 100)
 }
